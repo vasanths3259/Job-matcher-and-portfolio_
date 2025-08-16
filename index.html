@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Smart Job & Portfolio Matcher — Capstone (Enhanced)</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- html2pdf for export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <h1 id="hero-typing"></h1>
+      <p class="sub">Upload your projects, paste a job description, and get smart matches — all frontend, instant.</p>
+      <div class="hero-cta">
+        <button id="start-btn" class="btn primary">Get Started</button>
+        <button id="view-history-btn" class="btn outline">View History</button>
+      </div>
+    </div>
+    <div class="hero-decor"></div>
+  </header>
+
+  <main class="container">
+    <section class="grid">
+      <!-- Portfolio Column -->
+      <div class="card">
+        <h2>📁 Your Portfolio</h2>
+        <p class="muted">Add multiple projects — include skills separated by commas, or bulk import CSV.</p>
+
+        <div class="form-row">
+          <input id="proj-title" placeholder="Project title (e.g., Personal Portfolio)" />
+        </div>
+
+        <div class="form-row">
+          <input id="proj-skills" placeholder="Skills (comma separated - e.g., HTML, CSS, JavaScript)" />
+        </div>
+
+        <div class="form-row">
+          <textarea id="proj-desc" rows="3" placeholder="Short description (optional)"></textarea>
+        </div>
+
+        <div class="form-row actions">
+          <button id="add-project" class="btn">Add Project</button>
+          <button id="clear-projects" class="btn outline">Clear All</button>
+        </div>
+
+        <div class="form-row">
+          <label class="file-label">Import CSV:
+            <input id="csv-input" type="file" accept=".csv" />
+          </label>
+          <div id="drop-zone" class="drop-zone">Or drag & drop CSV here</div>
+          <div class="muted" style="font-size:13px;margin-top:8px">CSV format: <strong>title,skills,description</strong></div>
+        </div>
+
+        <div id="projects-list" class="projects-list"></div>
+      </div>
+
+      <!-- Job Input Column -->
+      <div class="card">
+        <h2>📝 Job Description</h2>
+        <p class="muted">Paste a job description or copy-paste multiple requirements.</p>
+
+        <textarea id="job-desc" rows="8" placeholder="Paste job description here..."></textarea>
+
+        <div class="form-row actions">
+          <button id="match-btn" class="btn primary">Run Match</button>
+          <button id="suggest-btn" class="btn">Suggest Improvements</button>
+        </div>
+
+        <div id="match-summary" class="match-summary hidden">
+          <div class="match-header">
+            <div class="circle-wrap">
+              <svg class="progress-ring" width="120" height="120">
+                <circle class="ring-bg" cx="60" cy="60" r="52"></circle>
+                <circle class="ring" cx="60" cy="60" r="52"></circle>
+              </svg>
+              <div class="ring-label"><span id="overall-percent">0</span>%</div>
+            </div>
+
+            <div class="summary-text">
+              <h3 id="best-role">Best Project Match: —</h3>
+              <p id="best-project">Suggested Project: —</p>
+              <div class="summary-actions">
+                <button id="export-pdf" class="btn">Export PDF</button>
+                <button id="save-history" class="btn outline">Save to History</button>
+              </div>
+            </div>
+          </div>
+
+          <div id="detailed-results" class="detailed-results"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Suggestions / Improvements -->
+    <section id="suggestions" class="card hidden">
+      <h3>💡 Improvement Suggestions</h3>
+      <ul id="suggestions-list"></ul>
+    </section>
+
+    <!-- History Modal -->
+    <div id="history-modal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>Match History</h3>
+          <button id="close-history" class="btn small">Close</button>
+        </div>
+        <div id="history-list" class="history-list"></div>
+        <div class="modal-actions">
+          <button id="clear-history" class="btn outline">Clear History</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="footer">
+    <p>Smart Job & Portfolio Matcher • Capstone Project • Built with HTML, CSS & JS</p>
+  </footer>
+
+  <script src="function.js"></script>
+</body>
+</html>

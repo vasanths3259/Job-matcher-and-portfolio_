@@ -1,0 +1,152 @@
+/* paste this replacing previous style.css — it's the same as before + new drop-zone styles */
+/* ... (earlier CSS same as previous file) ... */
+
+/* Add these new rules near Projects list rules or at the end */
+:root{
+  --bg:#f4f7fb; --card:#ffffff; --muted:#6b7280;
+  --p1:#5b8def; --p2:#7b61ff; --accent:#2a9d8f; --glass: rgba(255,255,255,0.6);
+  --shadow: 0 8px 24px rgba(16,24,40,0.06);
+  --maxw:1100px;
+  --radius:12px;
+  --mono: 'Poppins', sans-serif;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family:var(--mono);
+  background:var(--bg);
+  color:#111827;
+  margin:0;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* HERO */
+.hero{
+  background: linear-gradient(135deg,var(--p1),var(--p2));
+  color:white;
+  padding:48px 20px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero-inner{max-width:var(--maxw); text-align:center}
+#hero-typing{font-size:28px;margin:0;font-weight:700;letter-spacing:0.2px}
+.sub{opacity:0.95;margin-top:8px;color:rgba(255,255,255,0.92)}
+.hero-cta{margin-top:18px;display:flex;gap:12px;justify-content:center}
+
+/* Buttons */
+.btn{
+  border:0;padding:10px 14px;border-radius:10px;font-weight:600;cursor:pointer;
+  background:rgba(255,255,255,0.95); color: #111827; box-shadow:var(--shadow);
+}
+.btn.primary{background:linear-gradient(90deg,var(--p1),var(--p2)); color:white; border-radius:10px}
+.btn.outline{background:transparent;color:white;border:1px solid rgba(255,255,255,0.18)}
+.btn.small{padding:6px 10px;font-size:13px}
+
+/* Container */
+.container{max-width:var(--maxw);margin:-60px auto 40px;padding:0 18px}
+
+/* Grid */
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);}
+
+/* Forms */
+.form-row{margin-top:12px}
+input[type="text"], input, textarea{
+  width:100%;padding:10px;border-radius:8px;border:1px solid #e6e9ef;font-size:14px;
+  outline:none;resize:vertical;
+}
+textarea{min-height:80px}
+
+/* Projects list */
+.projects-list{margin-top:12px;display:flex;flex-direction:column;gap:10px}
+.project-item{
+  background:linear-gradient(180deg, rgba(250,250,255,1), rgba(245,247,250,1));
+  padding:10px;border-radius:10px;display:flex;justify-content:space-between;align-items:center;
+  box-shadow:0 6px 18px rgba(16,24,40,0.04);
+}
+.project-meta{display:flex;flex-direction:column;align-items:flex-start}
+.project-title{font-weight:600}
+.project-skills{font-size:13px;color:var(--muted);margin-top:6px}
+.remove-btn{background:transparent;border:0;color:#ef4444;font-weight:700;cursor:pointer}
+
+/* Match Summary */
+.match-summary{margin-top:16px;padding:14px;border-radius:12px;background:linear-gradient(180deg,#ffffff,#fbfdff)}
+.match-header{display:flex;gap:16px;align-items:center}
+.circle-wrap{position:relative;width:120px;height:120px}
+.progress-ring{transform:rotate(-90deg)}
+.ring-bg{fill:none;stroke:#f1f5f9;stroke-width:12}
+.ring{fill:none;stroke:linear-gradient(90deg,var(--p1),var(--p2));stroke-width:12;stroke-linecap:round;transition:stroke-dashoffset 1s ease-out}
+.ring-label{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-weight:700;font-size:18px}
+.summary-text{flex:1;text-align:left}
+.summary-text h3{margin:0;font-size:18px}
+.summary-text p{margin:6px 0;color:var(--muted)}
+.summary-actions{display:flex;gap:10px;margin-top:8px}
+
+/* Detailed results */
+.detailed-results{margin-top:12px;display:flex;flex-direction:column;gap:10px}
+.job-result{
+  display:flex;justify-content:space-between;align-items:center;padding:10px;border-radius:10px;
+  background:linear-gradient(180deg,#ffffff,#fbfdff);border:1px solid #eef2ff;
+  transition:transform .25s ease, box-shadow .25s ease;
+}
+.job-result:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(59,130,246,0.08)}
+.job-info{display:flex;flex-direction:column}
+.job-title{font-weight:700}
+.job-meta{font-size:13px;color:var(--muted);margin-top:6px}
+.match-pill{background:linear-gradient(90deg,var(--p1),var(--p2));color:white;padding:6px 10px;border-radius:999px;font-weight:700}
+.missing-list{color:#ef4444;font-size:13px;margin-top:6px}
+
+/* Suggestions */
+#suggestions ul{margin:0;padding-left:18px}
+.hidden{display:none}
+
+/* Modal (history) */
+.modal{position:fixed;left:0;top:0;width:100%;height:100%;background:rgba(2,6,23,0.5);display:flex;align-items:center;justify-content:center;padding:20px;z-index:999}
+.modal-content{width:100%;max-width:840px;background:white;border-radius:12px;padding:16px;box-shadow:var(--shadow)}
+.modal-header{display:flex;justify-content:space-between;align-items:center}
+.history-list{margin-top:12px;max-height:420px;overflow:auto;display:flex;flex-direction:column;gap:10px}
+.history-item{padding:10px;border-radius:10px;background:#fbfbff;border:1px solid #eef2ff;display:flex;justify-content:space-between;align-items:center}
+
+/* Footer */
+.footer{text-align:center;padding:18px;color:var(--muted);font-size:14px;margin-top:22px}
+
+/* Responsive */
+@media (max-width:900px){
+  .grid{grid-template-columns:1fr;gap:14px}
+  .hero{padding:36px 14px}
+  #hero-typing{font-size:22px}
+  .circle-wrap{width:100px;height:100px}
+}
+
+.file-label {
+  display:inline-block;
+  padding:8px 10px;
+  border-radius:8px;
+  background:#f3f6ff;
+  border:1px dashed #dbeafe;
+  cursor:pointer;
+  font-weight:600;
+  margin-right:10px;
+}
+.file-label input{display:none}
+
+.drop-zone{
+  margin-top:10px;
+  padding:14px;
+  border-radius:10px;
+  border:2px dashed rgba(99,102,241,0.18);
+  color: #4b5563;
+  background: linear-gradient(180deg, rgba(255,255,255,0.6), rgba(250,250,255,0.4));
+  transition: background .2s, transform .15s;
+}
+.drop-zone.dragover{
+  background: linear-gradient(90deg, rgba(99,102,241,0.06), rgba(59,130,246,0.06));
+  transform: translateY(-3px);
+}
+
+/* keep rest of CSS the same */
